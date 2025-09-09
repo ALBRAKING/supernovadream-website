@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Soporte y Ayuda (FAQ) – Supernova Dream</title>
+  <meta name="description" content="Preguntas frecuentes de Supernova Dream (ES/EN). Uso de la app, suscripciones, privacidad, notificaciones, acceso, compatibilidad y soporte." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root{ --bg:#091028; --btn:#2D5BE8; }
+    html,body{height:100%}
+    body{font-family:'Urbanist',system-ui,Segoe UI,Roboto,Helvetica,Arial; background:var(--bg); color:white;}
+    .paper{backdrop-filter: blur(12px); background:rgba(9,16,40,.55);} 
+    .badge{font-size:.75rem;padding:.25rem .6rem;border:1px solid rgba(255,255,255,.2);border-radius:.5rem}
+    details{border:1px solid rgba(255,255,255,.1); border-radius:0.75rem; padding:1rem; background:rgba(9,16,40,.55)}
+    summary{cursor:pointer; font-weight:600;}
+    summary::-webkit-details-marker{display:none}
+    details[open]{background:rgba(9,16,40,.7)}
+    .answer{color:rgb(229 231 235/.85)}
+  </style>
+</head>
+<body>
+  <!-- Header: logo + nombre + selector ES/EN -->
+  <header class="sticky top-0 z-50 bg-black/40 backdrop-blur border-b border-white/10">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2">
+        <img src="assets/logo.png" alt="Supernova Dream" class="h-8 w-8 rounded-md object-cover"/>
+        <span class="font-semibold">Supernova Dream</span>
+      </a>
+      <div class="flex items-center gap-2">
+        <button id="lang-es" class="badge" aria-pressed="true">ES</button>
+        <button id="lang-en" class="badge" aria-pressed="false">EN</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-5xl mx-auto px-4 py-10">
+    <div class="text-center mb-8">
+      <h1 class="text-2xl md:text-4xl font-bold" data-i18n="title">Soporte y Ayuda (FAQ)</h1>
+      <p class="text-white/70 mt-2" data-i18n="subtitle">Resuelve tus dudas rápidas sobre la app, suscripciones y privacidad.</p>
+    </div>
+
+    <section class="grid gap-4">
+      <!-- 10 FAQs -->
+      <details>
+        <summary data-i18n="q1">¿Qué es Supernova Dream?</summary>
+        <p class="answer mt-2" data-i18n="a1">Es una app de bienestar con un avatar IA que te escucha y te ofrece meditaciones, ejercicios de respiración, historias para dormir y música relajante para ayudarte a reducir el estrés y mejorar tu descanso.</p>
+      </details>
+      <details>
+        <summary data-i18n="q2">¿La app reemplaza atención médica o psicológica?</summary>
+        <p class="answer mt-2" data-i18n="a2">No. Es apoyo para el bienestar emocional; <strong>no sustituye</strong> terapia médica, psicológica ni profesional. Si tienes síntomas graves, busca ayuda profesional.</p>
+      </details>
+      <details>
+        <summary data-i18n="q3">¿Qué datos recopilan y para qué?</summary>
+        <p class="answer mt-2" data-i18n="a3">Recopilamos nombre, correo, estados de ánimo, favoritos, audios recientemente reproducidos e idioma del dispositivo para personalizar tu experiencia (Populares/Recientes/Favoritos), mejorar la app y enviar notificaciones si las habilitas. Consulta la <a class="underline" href="legal/privacidad.html">Política de Privacidad</a>.</p>
+      </details>
+      <details>
+        <summary data-i18n="q4">¿Cómo inicio sesión y cómo elimino mi cuenta?</summary>
+        <p class="answer mt-2" data-i18n="a4">Puedes crear cuenta e iniciar sesión con email (y pronto Google/Apple). La opción de <em>Eliminar cuenta</em> está disponible dentro de la app y borra tus datos de nuestros sistemas (incluido Supabase).</p>
+      </details>
+      <details>
+        <summary data-i18n="q5">¿Cómo funcionan las suscripciones y pagos?</summary>
+        <p class="answer mt-2" data-i18n="a5">Si compras en Android/iOS, se gestiona con Google Play o App Store. Si compras en la web, se procesa con Stripe. No almacenamos datos de tarjeta. Las cancelaciones y reembolsos se gestionan en la misma plataforma donde compraste.</p>
+      </details>
+      <details>
+        <summary data-i18n="q6">¿Cómo configuro o desactivo notificaciones?</summary>
+        <p class="answer mt-2" data-i18n="a6">En la app puedes activar recordatorios diarios motivacionales. Para desactivarlos, usa los ajustes del dispositivo o dentro de la app (sección de notificaciones).</p>
+      </details>
+      <details>
+        <summary data-i18n="q7">¿Con quién comparten mis datos?</summary>
+        <p class="answer mt-2" data-i18n="a7">Tu cuenta y preferencias se almacenan en Supabase. Las conversaciones con el avatar IA no se guardan tras cada sesión. No compartimos datos con terceros para publicidad.</p>
+      </details>
+      <details>
+        <summary data-i18n="q8">¿Qué dispositivos son compatibles?</summary>
+        <p class="answer mt-2" data-i18n="a8">Android y iOS recientes. Recomendamos mantener tu sistema actualizado para la mejor experiencia de audio y notificaciones.</p>
+      </details>
+      <details>
+        <summary data-i18n="q9">No escucho el audio o se interrumpe</summary>
+        <p class="answer mt-2" data-i18n="a9">Comprueba tu conexión, sube el volumen del dispositivo, cierra otras apps de música y reinicia la app. Si continúa, contáctanos indicando tu modelo de teléfono y versión de sistema.</p>
+      </details>
+      <details>
+        <summary data-i18n="q10">¿Cómo contacto al soporte?</summary>
+        <p class="answer mt-2" data-i18n="a10">Escríbenos a <strong>supernovadreamapp@gmail.com</strong> con el asunto “Soporte”. Incluye capturas o pasos para reproducir el problema.</p>
+      </details>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="py-10 border-t border-white/10 bg-black/30">
+    <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-3 gap-6 items-start text-center md:text-left">
+      <div>
+        <h4 class="font-semibold" data-i18n="foot_brand">Supernova Dream</h4>
+        <p class="text-white/70 text-sm mt-1" data-i18n="foot_desc">Bienestar y calma emocional impulsados por IA.</p>
+      </div>
+      <div>
+        <h4 class="font-semibold" data-i18n="foot_links">Enlaces</h4>
+        <ul class="text-sm text-white/80 mt-2 space-y-1">
+          <li><a class="hover:underline" href="index.html#waitlist" data-i18n="foot_wait">Lista de espera</a></li>
+          <li><a class="hover:underline" href="legal/privacidad.html" data-i18n="foot_priv">Privacidad</a></li>
+          <li><a class="hover:underline" href="legal/terminos.html" data-i18n="foot_terms">Términos</a></li>
+          <li><a class="hover:underline" href="legal/normas.html" data-i18n="foot_rules">Normas</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-semibold" data-i18n="foot_contact">Contacto</h4>
+        <p class="text-sm text-white/80 mt-2">supernovadreamapp@gmail.com</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const dict = {
+      es: {
+        title:'Soporte y Ayuda (FAQ)', subtitle:'Resuelve tus dudas rápidas sobre la app, suscripciones y privacidad.',
+        q1:'¿Qué es Supernova Dream?', a1:'Es una app de bienestar con un avatar IA que te escucha y te ofrece meditaciones, ejercicios de respiración, historias para dormir y música relajante para ayudarte a reducir el estrés y mejorar tu descanso.',
+        q2:'¿La app reemplaza atención médica o psicológica?', a2:'No. Es apoyo para el bienestar emocional; <strong>no sustituye</strong> terapia médica, psicológica ni profesional. Si tienes síntomas graves, busca ayuda profesional.',
+        q3:'¿Qué datos recopilan y para qué?', a3:'Recopilamos nombre, correo, estados de ánimo, favoritos, audios recientemente reproducidos e idioma del dispositivo para personalizar tu experiencia (Populares/Recientes/Favoritos), mejorar la app y enviar notificaciones si las habilitas. Consulta la <a class="underline" href="legal/privacidad.html">Política de Privacidad</a>.',
+        q4:'¿Cómo inicio sesión y cómo elimino mi cuenta?', a4:'Puedes crear cuenta e iniciar sesión con email (y pronto Google/Apple). La opción de <em>Eliminar cuenta</em> está disponible dentro de la app y borra tus datos de nuestros sistemas (incluido Supabase).',
+        q5:'¿Cómo funcionan las suscripciones y pagos?', a5:'Si compras en Android/iOS, se gestiona con Google Play o App Store. Si compras en la web, se procesa con Stripe. No almacenamos datos de tarjeta. Las cancelaciones y reembolsos se gestionan en la misma plataforma donde compraste.',
+        q6:'¿Cómo configuro o desactivo notificaciones?', a6:'En la app puedes activar recordatorios diarios motivacionales. Para desactivarlos, usa los ajustes del dispositivo o dentro de la app (sección de notificaciones).',
+        q7:'¿Con quién comparten mis datos?', a7:'Tu cuenta y preferencias se almacenan en Supabase. Las conversaciones con el avatar IA no se guardan tras cada sesión. No compartimos datos con terceros para publicidad.',
+        q8:'¿Qué dispositivos son compatibles?', a8:'Android y iOS recientes. Recomendamos mantener tu sistema actualizado para la mejor experiencia de audio y notificaciones.',
+        q9:'No escucho el audio o se interrumpe', a9:'Comprueba tu conexión, sube el volumen del dispositivo, cierra otras apps de música y reinicia la app. Si continúa, contáctanos indicando tu modelo de teléfono y versión de sistema.',
+        q10:'¿Cómo contacto al soporte?', a10:'Escríbenos a <strong>supernovadreamapp@gmail.com</strong> con el asunto “Soporte”. Incluye capturas o pasos para reproducir el problema.',
+        foot_brand:'Supernova Dream', foot_desc:'Bienestar y calma emocional impulsados por IA.', foot_links:'Enlaces', foot_wait:'Lista de espera', foot_priv:'Privacidad', foot_terms:'Términos', foot_rules:'Normas', foot_contact:'Contacto'
+      },
+      en: {
+        title:'Support & Help (FAQ)', subtitle:'Quick answers about the app, subscriptions, and privacy.',
+        q1:'What is Supernova Dream?', a1:'A wellness app with an AI avatar that listens and offers meditations, breathing exercises, sleep stories, and relaxing music to help you reduce stress and sleep better.',
+        q2:'Does the app replace medical or psychological care?', a2:'No. It supports emotional wellness; it <strong>does not replace</strong> medical, psychological, or professional therapy. If you have severe symptoms, seek professional help.',
+        q3:'What data do you collect and why?', a3:'We collect name, email, moods, favorites, recently played audios, and device language to personalize your experience (Popular/Recent/Favorites), improve the app, and send notifications if enabled. See our <a class="underline" href="legal/privacidad.html">Privacy Policy</a>.',
+        q4:'How do I sign in and delete my account?', a4:'You can create an account and sign in with email (Google/Apple coming soon). The <em>Delete account</em> option is available in-app and erases your data from our systems (including Supabase).',
+        q5:'How do subscriptions and payments work?', a5:'If you purchase on Android/iOS, it is handled by Google Play or the App Store. On the web, Stripe processes payments. We do not store card data. Cancellations and refunds are managed on the same platform you used to buy.',
+        q6:'How do I configure or disable notifications?', a6:'In the app you can enable daily motivational reminders. To turn them off, use your device settings or the app notifications section.',
+        q7:'Who do you share my data with?', a7:'Your account and preferences are stored in Supabase. AI avatar conversations are not kept after the session ends. We do not share data with third parties for advertising.',
+        q8:'Which devices are supported?', a8:'Recent Android and iOS devices. We recommend keeping your OS updated for the best audio and notification experience.',
+        q9:'I can’t hear audio or it keeps stopping', a9:'Check your connection, raise device volume, close other music apps, and restart the app. If it persists, contact us and include your phone model and OS version.',
+        q10:'How do I contact support?', a10:'Email <strong>supernovadreamapp@gmail.com</strong> with the subject “Support”. Include screenshots or steps to reproduce the issue.',
+        foot_brand:'Supernova Dream', foot_desc:'AI-powered calm and emotional wellness.', foot_links:'Links', foot_wait:'Waitlist', foot_priv:'Privacy', foot_terms:'Terms', foot_rules:'Rules', foot_contact:'Contact'
+      }
+    };
+
+    function setLang(lang){
+      document.documentElement.lang = lang === 'en' ? 'en' : 'es';
+      const map = dict[lang];
+      document.querySelectorAll('[data-i18n]').forEach(el=>{
+        const k = el.getAttribute('data-i18n');
+        if(map[k] !== undefined){ el.innerHTML = map[k]; }
+      });
+    }
+
+    function setActive(lang){
+      const es = document.getElementById('lang-es');
+      const en = document.getElementById('lang-en');
+      es.classList.toggle('bg-white/10', lang==='es');
+      en.classList.toggle('bg-white/10', lang==='en');
+      es.setAttribute('aria-pressed', lang==='es');
+      en.setAttribute('aria-pressed', lang==='en');
+    }
+
+    document.getElementById('lang-es').addEventListener('click', ()=>{ setLang('es'); setActive('es'); });
+    document.getElementById('lang-en').addEventListener('click', ()=>{ setLang('en'); setActive('en'); });
+
+    setLang('es'); setActive('es');
+  </script>
+</body>
+</html>
