@@ -13,13 +13,14 @@
     :root{ --bg:#091028; --btn:#2D5BE8; }
     html,body{height:100%}
     body{font-family:'Urbanist',system-ui,Segoe UI,Roboto,Helvetica,Arial; background:var(--bg); color:white;}
-    .paper{backdrop-filter: blur(12px); background:rgba(9,16,40,.55);} 
+    .paper{backdrop-filter: blur(12px); background:rgba(9,16,40,.55);}
     .badge{font-size:.75rem;padding:.25rem .6rem;border:1px solid rgba(255,255,255,.2);border-radius:.5rem}
     details{border:1px solid rgba(255,255,255,.1); border-radius:0.75rem; padding:1rem; background:rgba(9,16,40,.55)}
     summary{cursor:pointer; font-weight:600;}
     summary::-webkit-details-marker{display:none}
     details[open]{background:rgba(9,16,40,.7)}
     .answer{color:rgb(229 231 235/.85)}
+    a{color:#c7d2fe}
   </style>
 </head>
 <body>
@@ -59,6 +60,14 @@
         </p>
       </details>
 
+      <!-- ✅ NEW: Crisis / Emergency -->
+      <details>
+        <summary data-i18n="qE">Estoy en crisis o necesito ayuda urgente</summary>
+        <p class="answer mt-2" data-i18n="aE">
+          Supernova Dream no es un servicio de emergencias. Si estás en peligro inmediato o consideras autolesión, llama al <strong>911</strong> (EE. UU.) o a los servicios de emergencia de tu país. Si puedes, busca apoyo profesional lo antes posible.
+        </p>
+      </details>
+
       <details>
         <summary data-i18n="q3">¿Qué datos recopilan y para qué?</summary>
         <p class="answer mt-2" data-i18n="a3">
@@ -74,32 +83,34 @@
           Puedes crear cuenta e iniciar sesión con email (y Google/Apple si están disponibles).<br><br>
           <strong>Eliminar cuenta y datos:</strong><br>
           <strong>Dentro de la app:</strong> ve a <strong>Perfil → Account settings → “Eliminar datos y cuenta”</strong> y confirma. Esto elimina tu cuenta y los datos asociados (perfil, preferencias, historial de uso, favoritos y conversaciones con la IA).<br><br>
-          <strong>Si ya desinstalaste la app o no puedes iniciar sesión:</strong> escribe desde el correo con el que te registraste a 
-          <a class="underline" href="mailto:supernovadreamapp@gmail.com">supernovadreamapp@gmail.com</a> 
+          <strong>Si ya desinstalaste la app o no puedes iniciar sesión:</strong> escribe desde el correo con el que te registraste a
+          <a class="underline" href="mailto:supernovadreamapp@gmail.com">supernovadreamapp@gmail.com</a>
           con el asunto <strong>“Eliminar mi cuenta – Supernova Dream”</strong> e incluye tu email de registro.<br><br>
           <strong>Tiempo de eliminación:</strong> procesamos la solicitud en hasta <strong>30 días</strong>.<br>
           <strong>Datos que podemos conservar:</strong> por obligaciones legales/contables, podemos conservar <strong>registros de transacciones de suscripción</strong> (sin contenido personal) por el tiempo requerido por ley.
         </p>
       </details>
 
+      <!-- ✅ UPDATED: Subscriptions with auto-renew / refunds -->
       <details>
         <summary data-i18n="q5">¿Cómo funcionan las suscripciones y pagos?</summary>
         <p class="answer mt-2" data-i18n="a5">
-          Si compras en Android/iOS, se gestiona con Google Play o App Store. Si compras en la web, se procesa con Stripe. No almacenamos datos de tarjeta.
+          En iOS/Android, las suscripciones se compran y gestionan en <strong>App Store</strong> o <strong>Google Play</strong>. Si tu plan es auto-renovable, se renovará automáticamente salvo cancelación. Puedes cancelar desde la configuración de tu Apple ID o Google Play. Los reembolsos dependen de la política de la plataforma. En compras web, el pago se procesa con <strong>Stripe</strong> y se gestiona según lo mostrado en el checkout. No almacenamos datos de tarjeta.
         </p>
       </details>
 
       <details>
         <summary data-i18n="q6">¿Cómo configuro o desactivo notificaciones?</summary>
         <p class="answer mt-2" data-i18n="a6">
-          En la app puedes activar recordatorios diarios. Para desactivarlos, usa los ajustes del dispositivo o dentro de la app.
+          En la app puedes activar recordatorios diarios. Solo se envían si los habilitas. Para desactivarlos, usa los ajustes del dispositivo o dentro de la app.
         </p>
       </details>
 
+      <!-- ✅ UPDATED: Third parties / no absolutes -->
       <details>
         <summary data-i18n="q7">¿Con quién comparten mis datos?</summary>
         <p class="answer mt-2" data-i18n="a7">
-          Tus datos se almacenan en Supabase. Las conversaciones con el avatar IA no se guardan. No compartimos datos con terceros para publicidad.
+          Usamos proveedores para operar la app (por ejemplo, <strong>Supabase</strong> para cuenta y preferencias, <strong>Apple/Google</strong> para inicio de sesión si los eliges, servicios de <strong>notificaciones</strong> si las habilitas, plataformas de <strong>pago</strong> (App Store/Google Play y Stripe en web) y proveedor(es) de <strong>IA</strong> para generar respuestas del avatar). <strong>No vendemos</strong> tus datos ni los compartimos para publicidad personalizada. Por defecto no guardamos un historial permanente de chat; podemos conservar registros técnicos mínimos por un tiempo limitado para seguridad/diagnóstico.
         </p>
       </details>
 
@@ -157,27 +168,42 @@
   <script>
     const dict = {
       es: {
-        title:'Soporte y Ayuda (FAQ)', subtitle:'Resuelve tus dudas rápidas sobre la app, suscripciones y privacidad.',
+        title:'Soporte y Ayuda (FAQ)',
+        subtitle:'Resuelve tus dudas rápidas sobre la app, suscripciones y privacidad.',
+
         q1:'¿Qué es Supernova Dream?',
         a1:'Es una app de bienestar con un avatar IA que te escucha y te ofrece meditaciones, ejercicios de respiración, historias para dormir y música relajante para ayudarte a reducir el estrés y mejorar tu descanso.',
+
         q2:'¿La app reemplaza atención médica o psicológica?',
         a2:'No. Es apoyo para el bienestar emocional; <strong>no sustituye</strong> terapia médica, psicológica ni profesional. Si tienes síntomas graves, busca ayuda profesional.',
+
+        qE:'Estoy en crisis o necesito ayuda urgente',
+        aE:'Supernova Dream no es un servicio de emergencias. Si estás en peligro inmediato o consideras autolesión, llama al <strong>911</strong> (EE. UU.) o a los servicios de emergencia de tu país. Si puedes, busca apoyo profesional lo antes posible.',
+
         q3:'¿Qué datos recopilan y para qué?',
         a3:'Recopilamos nombre, correo, estados de ánimo, favoritos, audios recientemente reproducidos e idioma del dispositivo para personalizar tu experiencia, mejorar la app y enviar notificaciones si las habilitas. Consulta la <a class="underline" href="legal/privacidad.html">Política de Privacidad</a>.',
+
         q4:'¿Cómo inicio sesión y cómo elimino mi cuenta?',
         a4:'Puedes crear cuenta e iniciar sesión con email (y Google/Apple si están disponibles).<br><br><strong>Eliminar cuenta y datos:</strong><br><strong>Dentro de la app:</strong> ve a <strong>Perfil → Account settings → “Eliminar datos y cuenta”</strong> y confirma. Esto elimina tu cuenta y los datos asociados (perfil, preferencias, historial de uso, favoritos y conversaciones con la IA).<br><br><strong>Si ya desinstalaste la app o no puedes iniciar sesión:</strong> escribe desde el correo con el que te registraste a <a class="underline" href="mailto:supernovadreamapp@gmail.com">supernovadreamapp@gmail.com</a> con el asunto <strong>“Eliminar mi cuenta – Supernova Dream”</strong> e incluye tu email de registro.<br><br><strong>Tiempo de eliminación:</strong> procesamos la solicitud en hasta <strong>30 días</strong>.<br><strong>Datos que podemos conservar:</strong> por obligaciones legales/contables, podemos conservar <strong>registros de transacciones de suscripción</strong> (sin contenido personal) por el tiempo requerido por ley.',
+
         q5:'¿Cómo funcionan las suscripciones y pagos?',
-        a5:'Si compras en Android/iOS, se gestiona con Google Play o App Store. Si compras en la web, se procesa con Stripe. No almacenamos datos de tarjeta.',
+        a5:'En iOS/Android, las suscripciones se compran y gestionan en <strong>App Store</strong> o <strong>Google Play</strong>. Si tu plan es auto-renovable, se renovará automáticamente salvo cancelación. Puedes cancelar desde la configuración de tu Apple ID o Google Play. Los reembolsos dependen de la política de la plataforma. En compras web, el pago se procesa con <strong>Stripe</strong> y se gestiona según lo mostrado en el checkout. No almacenamos datos de tarjeta.',
+
         q6:'¿Cómo configuro o desactivo notificaciones?',
-        a6:'En la app puedes activar recordatorios diarios. Para desactivarlos, usa los ajustes del dispositivo o dentro de la app.',
+        a6:'En la app puedes activar recordatorios diarios. Solo se envían si los habilitas. Para desactivarlos, usa los ajustes del dispositivo o dentro de la app.',
+
         q7:'¿Con quién comparten mis datos?',
-        a7:'Tus datos se almacenan en Supabase. Las conversaciones con el avatar IA no se guardan. No compartimos datos con terceros para publicidad.',
+        a7:'Usamos proveedores para operar la app (por ejemplo, <strong>Supabase</strong> para cuenta y preferencias, <strong>Apple/Google</strong> para inicio de sesión si los eliges, servicios de <strong>notificaciones</strong> si las habilitas, plataformas de <strong>pago</strong> (App Store/Google Play y Stripe en web) y proveedor(es) de <strong>IA</strong> para generar respuestas del avatar). <strong>No vendemos</strong> tus datos ni los compartimos para publicidad personalizada. Por defecto no guardamos un historial permanente de chat; podemos conservar registros técnicos mínimos por un tiempo limitado para seguridad/diagnóstico.',
+
         q8:'¿Qué dispositivos son compatibles?',
         a8:'Android y iOS recientes. Recomendamos mantener tu sistema actualizado para la mejor experiencia.',
+
         q9:'No escucho el audio o se interrumpe',
         a9:'Comprueba tu conexión, volumen y cierra otras apps de música. Si continúa, contáctanos.',
+
         q10:'¿Cómo contacto al soporte?',
         a10:'Escríbenos a <strong>supernovadreamapp@gmail.com</strong> con el asunto “Soporte”.',
+
         foot_brand:'Supernova Dream',
         foot_desc:'Bienestar y calma emocional impulsados por IA.',
         foot_links:'Enlaces',
@@ -188,28 +214,44 @@
         foot_contact:'Contacto',
         foot_brand_owner:'Supernova Dream es una marca operada por Bravaris LLC.'
       },
+
       en: {
-        title:'Support & Help (FAQ)', subtitle:'Quick answers about the app, subscriptions, and privacy.',
+        title:'Support & Help (FAQ)',
+        subtitle:'Quick answers about the app, subscriptions, and privacy.',
+
         q1:'What is Supernova Dream?',
         a1:'A wellness app with an AI avatar that listens and offers meditations, breathing exercises, sleep stories, and relaxing music to help reduce stress and improve sleep.',
+
         q2:'Does the app replace medical or psychological care?',
         a2:'No. It supports wellness; it <strong>does not replace</strong> medical or psychological therapy. If you have severe symptoms, seek professional help.',
+
+        qE:'I’m in crisis or need urgent help',
+        aE:'Supernova Dream is not an emergency service. If you are in immediate danger or considering self-harm, call <strong>911</strong> (U.S.) or your local emergency number. If possible, seek professional support as soon as you can.',
+
         q3:'What data do you collect and why?',
         a3:'We collect name, email, moods, favorites, recently played audios, and device language to personalize your experience, improve the app, and send notifications if enabled. See our <a class="underline" href="legal/privacidad.html">Privacy Policy</a>.',
+
         q4:'How do I sign in and delete my account?',
         a4:'You can create an account and sign in with email (and Google/Apple if available).<br><br><strong>Delete account and data:</strong><br><strong>Inside the app:</strong> go to <strong>Profile → Account settings → “Delete account and data”</strong> and confirm. This deletes your account and associated data (profile, preferences, usage history, favorites, and AI chat conversations).<br><br><strong>If you uninstalled the app or can’t sign in:</strong> email us from your registered address at <a class="underline" href="mailto:supernovadreamapp@gmail.com">supernovadreamapp@gmail.com</a> with subject <strong>“Delete my account – Supernova Dream”</strong> and include your registered email.<br><br><strong>Deletion timeframe:</strong> within <strong>30 days</strong>.<br><strong>Data we may retain:</strong> subscription transaction records (without personal content) for the period required by law.',
+
         q5:'How do subscriptions and payments work?',
-        a5:'If purchased on Android/iOS, subscriptions are managed by Google Play or the App Store. Web purchases are processed via Stripe. We do not store card data.',
+        a5:'On iOS/Android, subscriptions are purchased and managed through the <strong>App Store</strong> or <strong>Google Play</strong>. If your plan is auto-renewable, it renews automatically unless you cancel. Cancel from your Apple ID or Google Play settings. Refunds depend on the platform’s policy. For web purchases, payments are processed via <strong>Stripe</strong> under the terms shown at checkout. We do not store card data.',
+
         q6:'How do I configure or disable notifications?',
-        a6:'You can enable daily reminders in the app. Disable them in device settings or inside the app.',
+        a6:'You can enable daily reminders in the app. They are only sent if you enable them. Disable them in device settings or inside the app.',
+
         q7:'Who do you share my data with?',
-        a7:'Your data is stored in Supabase. AI conversations are not saved. We do not share data with third parties for advertising.',
+        a7:'We use service providers to operate the app (e.g., <strong>Supabase</strong> for account and preferences, <strong>Apple/Google</strong> sign-in if you choose it, <strong>notification</strong> services if enabled, <strong>payment</strong> platforms (App Store/Google Play and Stripe on the web), and <strong>AI</strong> provider(s) to generate the avatar responses). We <strong>do not sell</strong> your data or share it for personalized advertising. By default, we do not keep a permanent chat history; we may retain minimal technical logs for a limited time for security/diagnostics.',
+
         q8:'Which devices are supported?',
         a8:'Recent Android and iOS devices. We recommend keeping your OS updated.',
+
         q9:'I can’t hear audio or it keeps stopping',
         a9:'Check your connection, volume, and close other audio apps. If it continues, contact us.',
+
         q10:'How do I contact support?',
         a10:'Email <strong>supernovadreamapp@gmail.com</strong> with subject “Support”.',
+
         foot_brand:'Supernova Dream',
         foot_desc:'AI-powered calm and emotional wellness.',
         foot_links:'Links',
@@ -247,3 +289,4 @@
   </script>
 </body>
 </html>
+
