@@ -17,16 +17,55 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
+
     <style>
       :root{ --bg:#091028; --btn:#2D5BE8; --card:#0d1634; }
       html,body{height:100%}
       body{font-family:'Urbanist',system-ui,Segoe UI,Roboto,Helvetica,Arial; background:var(--bg); color:#fff;}
+
       .glass{backdrop-filter: blur(12px); background:rgba(9,16,40,.55);}
       .hero-slide{will-change:opacity}
-      .legal-card{display:flex;align-items:center;justify-content:center;min-height:9rem;border:1px solid rgba(255,255,255,.12);border-radius:1rem;background:rgba(9,16,40,.55);text-align:center}
+
+      .legal-card{
+        display:flex;align-items:center;justify-content:center;min-height:9rem;
+        border:1px solid rgba(255,255,255,.12);border-radius:1rem;
+        background:rgba(9,16,40,.55);text-align:center
+      }
       .legal-card:hover{background:rgba(255,255,255,.06)}
+
+      /* ✅ Botones uniformes con imagen PNG */
+      .store-badges{
+        display:grid;
+        grid-template-columns: 1fr;
+        gap: .75rem;
+        margin-top: 1.5rem;
+        max-width: 520px;
+      }
+      @media (min-width: 640px){
+        .store-badges{ grid-template-columns: 1fr 1fr; max-width: 620px; }
+      }
+      .store-badge{
+        height:56px;
+        border-radius: 0.75rem;
+        border:1px solid rgba(255,255,255,.20);
+        background: rgba(255,255,255,.08);
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        transition: .15s ease;
+      }
+      .store-badge:hover{
+        background: rgba(255,255,255,.14);
+        border-color: rgba(255,255,255,.30);
+      }
+      .store-badge img{
+        height:32px;     /* ajusta aquí si quieres más grande/pequeño */
+        width:auto;
+        object-fit:contain;
+      }
     </style>
   </head>
+
 <body class="min-h-screen text-white">
   <!-- NAV -->
   <header class="sticky top-0 z-50 bg-black/40 backdrop-blur border-b border-white/10">
@@ -36,11 +75,7 @@
         <span class="font-semibold">Supernova Dream</span>
       </a>
 
-      <nav class="hidden sm:flex items-center gap-5 text-sm">
-        <a href="#waitlist" class="hover:text-blue-300" data-i18n="nav_wait">Download</a>
-        <a href="#faq" class="hover:text-blue-300" data-i18n="nav_faq">Support / FAQ</a>
-        <a href="#legal" class="hover:text-blue-300" data-i18n="nav_legal">Legal</a>
-      </nav>
+      <!-- ✅ Quitado el menú de arriba (Download / Support / FAQ) -->
 
       <div class="flex items-center gap-2">
         <button id="lang-es" class="px-3 py-1 rounded-lg text-xs border border-white/20 hover:bg-white/10">ES</button>
@@ -49,7 +84,7 @@
     </div>
   </header>
 
-  <!-- HERO con carrusel de fondo + caption alineado al contenedor -->
+  <!-- HERO -->
   <section class="relative overflow-hidden min-h-[85vh] md:min-h-[92vh]">
     <!-- Fondo carrusel -->
     <div class="absolute inset-0 -z-10">
@@ -60,7 +95,7 @@
       <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/80"></div>
     </div>
 
-    <!-- Caption alineado con el mismo contenedor del header -->
+    <!-- Caption -->
     <div class="pointer-events-none absolute inset-x-0 bottom-6">
       <div class="max-w-6xl mx-auto px-4">
         <div class="glass inline-block rounded-xl p-4 border border-white/10">
@@ -73,43 +108,35 @@
     <!-- Texto principal -->
     <div class="max-w-6xl mx-auto px-4 pt-24 pb-16 grid md:grid-cols-2 gap-10 items-center">
       <div>
-        <h1 class="text-3xl md:text-5xl font-bold leading-tight" data-i18n="hero_title">Calm your mind. One step a day.</h1>
-        <p class="mt-4 text-white/80" data-i18n="hero_sub">Talk to an AI avatar that listens to help you focus and sleep better.</p>
+        <h1 class="text-3xl md:text-5xl font-bold leading-tight" data-i18n="hero_title">
+          Calm your mind. One step a day.
+        </h1>
+        <p class="mt-4 text-white/80" data-i18n="hero_sub">
+          Talk to an AI avatar that listens to help you focus and sleep better.
+        </p>
 
-        <!-- BOTONES DESCARGA (ANTES: Únete a la lista) -->
-        <div class="mt-6 flex flex-col sm:flex-row gap-3">
+        <!-- ✅ Botones de descarga uniformes con PNG -->
+        <div class="store-badges">
           <a
+            class="store-badge"
             href="https://apps.apple.com/us/app/supernova-dream/id6752909469"
             target="_blank"
             rel="noopener"
-            class="flex items-center justify-center gap-3 px-5 py-3 rounded-xl bg-white/10 border border-white/20 hover:bg-white/15 hover:border-white/30"
+            data-i18n-aria="aria_ios"
             aria-label="Download on the App Store"
           >
-            <!-- Apple icon -->
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" class="opacity-90">
-              <path d="M16.365 1.43c0 1.14-.415 2.2-1.245 3.17-.996 1.16-2.62 2.06-4.05 1.95-.18-1.07.335-2.21 1.277-3.31.93-1.1 2.53-1.95 4.018-1.81zM20.52 17.13c-.6 1.4-.88 2.03-1.65 3.26-1.08 1.72-2.6 3.87-4.5 3.89-1.68.02-2.11-1.1-4.4-1.09-2.29.01-2.76 1.11-4.44 1.09-1.9-.02-3.36-1.96-4.44-3.68C-0.01 16.9-.98 11.9 1.06 8.76c1.04-1.6 2.7-2.54 4.46-2.56 1.7-.03 3.31 1.15 4.4 1.15 1.07 0 3.07-1.42 5.18-1.21.88.04 3.34.35 4.92 2.66-.13.08-2.94 1.7-2.91 5.08.03 4.04 3.54 5.38 3.49 5.25z"/>
-            </svg>
-
-            <div class="text-left leading-tight">
-              <div class="text-xs text-white/70" data-i18n="cta_ios_small">Download on the</div>
-              <div class="text-base font-semibold" data-i18n="cta_ios_big">App Store</div>
-            </div>
+            <img src="assets/appstore.png" alt="App Store" />
           </a>
 
           <a
+            class="store-badge"
             href="https://play.google.com/store/apps/details?id=com.supernovadream.app"
             target="_blank"
             rel="noopener"
-            class="flex items-center justify-center gap-3 px-5 py-3 rounded-xl bg-[var(--btn)] hover:opacity-90 font-semibold"
+            data-i18n-aria="aria_android"
             aria-label="Get it on Google Play"
           >
-            <!-- Play icon -->
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" class="opacity-95">
-              <path d="M3 3.9v16.2c0 .7.8 1.2 1.4.8l10-8.1c.5-.4.5-1.2 0-1.6l-10-8.1C3.8 2.7 3 3.2 3 3.9z"/>
-              <path d="M14.7 12 20 8.7c.6-.4.6-1.2 0-1.6-1.2-.8-3.2-2-4.7-2.9L14.7 12z" opacity=".55"/>
-              <path d="M14.7 12l.6 7.8c1.5-.9 3.5-2.1 4.7-2.9.6-.4.6-1.2 0-1.6L14.7 12z" opacity=".55"/>
-            </svg>
-            <span data-i18n="cta_android">Get it on Google Play</span>
+            <img src="assets/googleplay.png" alt="Google Play" />
           </a>
         </div>
       </div>
@@ -118,43 +145,40 @@
     </div>
   </section>
 
-  <!-- DOWNLOAD (antes WAITLIST, conservamos el id para no romper anchors internos) -->
+  <!-- DOWNLOAD SECTION (antes WAITLIST) -->
   <section id="waitlist" class="py-14 border-t border-white/10 bg-black/30">
     <div class="max-w-3xl mx-auto px-4">
       <h2 class="text-2xl md:text-3xl font-bold" data-i18n="dl_title">Download Supernova Dream</h2>
       <p class="mt-2 text-white/80" data-i18n="dl_sub">Available now on iOS and Android.</p>
 
-      <div class="mt-6 grid sm:grid-cols-2 gap-3">
+      <!-- ✅ Misma apariencia uniforme con PNG -->
+      <div class="store-badges">
         <a
+          class="store-badge"
           href="https://apps.apple.com/us/app/supernova-dream/id6752909469"
           target="_blank"
           rel="noopener"
-          class="flex items-center justify-center gap-3 px-5 py-4 rounded-xl bg-white/10 border border-white/20 hover:bg-white/15 hover:border-white/30"
+          data-i18n-aria="aria_ios"
+          aria-label="Download on the App Store"
         >
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" class="opacity-90">
-            <path d="M16.365 1.43c0 1.14-.415 2.2-1.245 3.17-.996 1.16-2.62 2.06-4.05 1.95-.18-1.07.335-2.21 1.277-3.31.93-1.1 2.53-1.95 4.018-1.81zM20.52 17.13c-.6 1.4-.88 2.03-1.65 3.26-1.08 1.72-2.6 3.87-4.5 3.89-1.68.02-2.11-1.1-4.4-1.09-2.29.01-2.76 1.11-4.44 1.09-1.9-.02-3.36-1.96-4.44-3.68C-0.01 16.9-.98 11.9 1.06 8.76c1.04-1.6 2.7-2.54 4.46-2.56 1.7-.03 3.31 1.15 4.4 1.15 1.07 0 3.07-1.42 5.18-1.21.88.04 3.34.35 4.92 2.66-.13.08-2.94 1.7-2.91 5.08.03 4.04 3.54 5.38 3.49 5.25z"/>
-          </svg>
-          <span class="font-semibold" data-i18n="dl_ios">Download on the App Store</span>
+          <img src="assets/appstore.png" alt="App Store" />
         </a>
 
         <a
+          class="store-badge"
           href="https://play.google.com/store/apps/details?id=com.supernovadream.app"
           target="_blank"
           rel="noopener"
-          class="flex items-center justify-center gap-3 px-5 py-4 rounded-xl bg-[var(--btn)] hover:opacity-90 font-semibold"
+          data-i18n-aria="aria_android"
+          aria-label="Get it on Google Play"
         >
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" class="opacity-95">
-            <path d="M3 3.9v16.2c0 .7.8 1.2 1.4.8l10-8.1c.5-.4.5-1.2 0-1.6l-10-8.1C3.8 2.7 3 3.2 3 3.9z"/>
-            <path d="M14.7 12 20 8.7c.6-.4.6-1.2 0-1.6-1.2-.8-3.2-2-4.7-2.9L14.7 12z" opacity=".55"/>
-            <path d="M14.7 12l.6 7.8c1.5-.9 3.5-2.1 4.7-2.9.6-.4.6-1.2 0-1.6L14.7 12z" opacity=".55"/>
-          </svg>
-          <span data-i18n="dl_android">Get it on Google Play</span>
+          <img src="assets/googleplay.png" alt="Google Play" />
         </a>
       </div>
     </div>
   </section>
 
-  <!-- FAQ (resumen) -->
+  <!-- FAQ -->
   <section id="faq" class="py-14">
     <div class="max-w-5xl mx-auto px-4">
       <h2 class="text-2xl md:text-3xl font-bold" data-i18n="faq_title">Support & Help (FAQ)</h2>
@@ -176,7 +200,7 @@
     </div>
   </section>
 
-  <!-- LEGAL (tarjetas grandes) -->
+  <!-- LEGAL -->
   <section id="legal" class="py-14 border-t border-white/10 bg-black/30">
     <div class="max-w-6xl mx-auto px-4">
       <h2 class="text-2xl md:text-3xl font-bold" data-i18n="legal_title">Legal</h2>
@@ -253,19 +277,13 @@
     }
     if(slides.length){ rotateHero(); setInterval(rotateHero, 4500); }
 
-    // i18n
     const dict = {
       es: {
-        nav_wait:'Descargar', nav_faq:'Soporte / FAQ', nav_legal:'Legal',
         hero_title:'Calma tu mente. Un paso cada día.',
         hero_sub:'Habla con un avatar IA que te escucha y obtén bienestar para enfocarte y dormir mejor.',
-        cta_ios_small:'Descárgala en',
-        cta_ios_big:'App Store',
-        cta_android:'Consíguelo en Google Play',
+
         dl_title:'Descarga Supernova Dream',
         dl_sub:'Disponible ahora en iOS y Android.',
-        dl_ios:'Descargar en App Store',
-        dl_android:'Consíguelo en Google Play',
 
         faq_title:'Soporte y Ayuda (FAQ)',
         mini_q1:'¿Qué es Supernova Dream?',
@@ -287,19 +305,17 @@
         foot_terms:'Términos',
         foot_rules:'Normas',
         foot_contact:'Contacto',
-        foot_brand_owner:'Supernova Dream es una marca operada por Bravaris LLC.'
+        foot_brand_owner:'Supernova Dream es una marca operada por Bravaris LLC.',
+
+        aria_ios:'Descargar en App Store',
+        aria_android:'Consíguelo en Google Play'
       },
       en: {
-        nav_wait:'Download', nav_faq:'Support / FAQ', nav_legal:'Legal',
         hero_title:'Calm your mind. One step a day.',
         hero_sub:'Talk to an AI avatar that listens to help you focus and sleep better.',
-        cta_ios_small:'Download on the',
-        cta_ios_big:'App Store',
-        cta_android:'Get it on Google Play',
+
         dl_title:'Download Supernova Dream',
         dl_sub:'Available now on iOS and Android.',
-        dl_ios:'Download on the App Store',
-        dl_android:'Get it on Google Play',
 
         faq_title:'Support & Help (FAQ)',
         mini_q1:'What is Supernova Dream?',
@@ -321,7 +337,10 @@
         foot_terms:'Terms',
         foot_rules:'Rules',
         foot_contact:'Contact',
-        foot_brand_owner:'Supernova Dream is a brand operated by Bravaris LLC.'
+        foot_brand_owner:'Supernova Dream is a brand operated by Bravaris LLC.',
+
+        aria_ios:'Download on the App Store',
+        aria_android:'Get it on Google Play'
       }
     };
 
@@ -332,9 +351,14 @@
       document.querySelectorAll('[data-i18n]').forEach(el=>{
         const k = el.getAttribute('data-i18n');
         const val = dict[currentLang][k];
-        if(val !== undefined){
-          if(el.tagName === 'INPUT'){ el.placeholder = val; } else { el.textContent = val; }
-        }
+        if(val !== undefined){ el.textContent = val; }
+      });
+
+      // aria-label traducible (sin tocar links)
+      document.querySelectorAll('[data-i18n-aria]').forEach(el=>{
+        const k = el.getAttribute('data-i18n-aria');
+        const val = dict[currentLang][k];
+        if(val !== undefined) el.setAttribute('aria-label', val);
       });
 
       // refrescar caption actual a idioma seleccionado
