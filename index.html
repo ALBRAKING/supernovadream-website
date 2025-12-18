@@ -33,7 +33,7 @@
       }
       .legal-card:hover{background:rgba(255,255,255,.06)}
 
-      /* ✅ Botones uniformes con imagen PNG */
+      /* ✅ Botones uniformes */
       .store-badges{
         display:grid;
         grid-template-columns: 1fr;
@@ -44,8 +44,10 @@
       @media (min-width: 640px){
         .store-badges{ grid-template-columns: 1fr 1fr; max-width: 620px; }
       }
+
       .store-badge{
         height:56px;
+        padding: 0 16px;
         border-radius: 0.75rem;
         border:1px solid rgba(255,255,255,.20);
         background: rgba(255,255,255,.08);
@@ -58,10 +60,31 @@
         background: rgba(255,255,255,.14);
         border-color: rgba(255,255,255,.30);
       }
+
+      /* ✅ Icono + texto */
+      .badge-inner{
+        display:flex;
+        align-items:center;
+        gap:12px;
+        width: 100%;
+        justify-content:center;
+      }
       .store-badge img{
-        height:32px;     /* ajusta aquí si quieres más grande/pequeño */
+        height:28px; /* mejor con iconos 100x100 (menos pixelado) */
         width:auto;
         object-fit:contain;
+      }
+      .badge-text{
+        text-align:left;
+        line-height:1.1;
+      }
+      .badge-kicker{
+        font-size:12px;
+        color: rgba(255,255,255,.75);
+      }
+      .badge-title{
+        font-size:15px;
+        font-weight:700;
       }
     </style>
   </head>
@@ -74,8 +97,6 @@
         <img src="assets/logo.png" alt="Supernova Dream logo" class="h-8 w-8 rounded-xl object-cover"/>
         <span class="font-semibold">Supernova Dream</span>
       </a>
-
-      <!-- ✅ Quitado el menú de arriba (Download / Support / FAQ) -->
 
       <div class="flex items-center gap-2">
         <button id="lang-es" class="px-3 py-1 rounded-lg text-xs border border-white/20 hover:bg-white/10">ES</button>
@@ -115,7 +136,7 @@
           Talk to an AI avatar that listens to help you focus and sleep better.
         </p>
 
-        <!-- ✅ Botones de descarga uniformes con PNG -->
+        <!-- ✅ Botones de descarga uniformes con icono + texto -->
         <div class="store-badges">
           <a
             class="store-badge"
@@ -125,7 +146,13 @@
             data-i18n-aria="aria_ios"
             aria-label="Download on the App Store"
           >
-            <img src="assets/appstore.png" alt="App Store" />
+            <div class="badge-inner">
+              <img src="assets/appstore.png" alt="App Store" />
+              <div class="badge-text">
+                <div class="badge-kicker" data-i18n="badge_ios_kicker">Download on the</div>
+                <div class="badge-title" data-i18n="badge_ios_title">App Store</div>
+              </div>
+            </div>
           </a>
 
           <a
@@ -136,7 +163,13 @@
             data-i18n-aria="aria_android"
             aria-label="Get it on Google Play"
           >
-            <img src="assets/googleplay.png" alt="Google Play" />
+            <div class="badge-inner">
+              <img src="assets/googleplay.png" alt="Google Play" />
+              <div class="badge-text">
+                <div class="badge-kicker" data-i18n="badge_android_kicker">Get it on</div>
+                <div class="badge-title" data-i18n="badge_android_title">Google Play</div>
+              </div>
+            </div>
           </a>
         </div>
       </div>
@@ -151,7 +184,6 @@
       <h2 class="text-2xl md:text-3xl font-bold" data-i18n="dl_title">Download Supernova Dream</h2>
       <p class="mt-2 text-white/80" data-i18n="dl_sub">Available now on iOS and Android.</p>
 
-      <!-- ✅ Misma apariencia uniforme con PNG -->
       <div class="store-badges">
         <a
           class="store-badge"
@@ -161,7 +193,13 @@
           data-i18n-aria="aria_ios"
           aria-label="Download on the App Store"
         >
-          <img src="assets/appstore.png" alt="App Store" />
+          <div class="badge-inner">
+            <img src="assets/appstore.png" alt="App Store" />
+            <div class="badge-text">
+              <div class="badge-kicker" data-i18n="badge_ios_kicker">Download on the</div>
+              <div class="badge-title" data-i18n="badge_ios_title">App Store</div>
+            </div>
+          </div>
         </a>
 
         <a
@@ -172,7 +210,13 @@
           data-i18n-aria="aria_android"
           aria-label="Get it on Google Play"
         >
-          <img src="assets/googleplay.png" alt="Google Play" />
+          <div class="badge-inner">
+            <img src="assets/googleplay.png" alt="Google Play" />
+            <div class="badge-text">
+              <div class="badge-kicker" data-i18n="badge_android_kicker">Get it on</div>
+              <div class="badge-title" data-i18n="badge_android_title">Google Play</div>
+            </div>
+          </div>
         </a>
       </div>
     </div>
@@ -282,6 +326,11 @@
         hero_title:'Calma tu mente. Un paso cada día.',
         hero_sub:'Habla con un avatar IA que te escucha y obtén bienestar para enfocarte y dormir mejor.',
 
+        badge_ios_kicker:'Descárgala en',
+        badge_ios_title:'App Store',
+        badge_android_kicker:'Consíguela en',
+        badge_android_title:'Google Play',
+
         dl_title:'Descarga Supernova Dream',
         dl_sub:'Disponible ahora en iOS y Android.',
 
@@ -313,6 +362,11 @@
       en: {
         hero_title:'Calm your mind. One step a day.',
         hero_sub:'Talk to an AI avatar that listens to help you focus and sleep better.',
+
+        badge_ios_kicker:'Download on the',
+        badge_ios_title:'App Store',
+        badge_android_kicker:'Get it on',
+        badge_android_title:'Google Play',
 
         dl_title:'Download Supernova Dream',
         dl_sub:'Available now on iOS and Android.',
